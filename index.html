@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LODE Marketing — Built to Be Found.</title>
+  <meta name="description" content="LODE Marketing helps local businesses build a stronger online presence with professional websites, Meta ads, and Airbnb ad management. Serving the Chattanooga, TN area.">
+
+  <!-- ============================================================
+       META PIXEL — paste your pixel code here after setting up
+       Meta Business Suite at business.facebook.com
+  =============================================================== -->
+
+  <style>
+    :root {
+      --navy: #2D3B4E;
+      --navy-dark: #1E2A38;
+      --navy-light: #3A4E65;
+      --orange: #C8792A;
+      --orange-light: #E08B35;
+      --white: #FFFFFF;
+      --off-white: #F7F8FA;
+      --gray-light: #E8ECF0;
+      --gray: #8A96A3;
+      --text: #1E2A38;
+      --text-muted: #5A6676;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: #0a1018;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.10) 50%, rgba(0,0,0,0.38) 100%),
+        url('https://images.unsplash.com/photo-1693774557231-e2be6c3594e8?w=1600&q=80');
+      background-size: cover, cover;
+      background-position: center, center;
+      background-attachment: fixed, fixed;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.32)),
+        url('https://images.unsplash.com/photo-1693774557231-e2be6c3594e8?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: box-shadow 0.35s ease;
+    }
+    nav.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.45);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+    }
+    .nav-logo-main {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--white);
+    }
+    .nav-logo-main span { color: var(--orange); }
+    .nav-logo-sub {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.90);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--orange-light) !important; color: var(--white) !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── HERO SLIDER ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      overflow: hidden;
+      color: var(--white);
+      background: transparent;
+      padding: 0;
+    }
+
+    .hero-slider-track {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      min-height: 100vh;
+      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+      will-change: transform;
+    }
+
+    .hero-slide {
+      flex: 0 0 25%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 5% 80px;
+    }
+
+    .hero-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 80px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .hero-arrow {
+      pointer-events: all;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 22px;
+      transition: background 0.2s, border-color 0.2s;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      line-height: 1;
+    }
+    .hero-arrow:hover {
+      background: rgba(200,121,42,0.5);
+      border-color: var(--orange);
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+    .hero-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero-dot.active {
+      background: var(--orange);
+      transform: scale(1.4);
+    }
+
+    .hero-eyebrow {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      background: linear-gradient(
+        118deg,
+        #e0873a 0%, #f5b84a 18%, #C8792A 28%,
+        #fad060 38%, #d4782a 50%,
+        #f0a835 62%, #C8792A 72%, #f5c050 88%, #d97c28 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      filter: drop-shadow(0 0 12px rgba(200,121,42,0.45));
+    }
+
+    .hero-headline {
+      font-size: clamp(52px, 10vw, 108px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin-bottom: 20px;
+      background: linear-gradient(
+        118deg,
+        #f8f4ee 0%, #ffffff 8%,
+        #e0d8ce 16%, #C8792A 21%, #f5c060 23%, #C8792A 25%,
+        #dedad2 31%, #ffffff 42%,
+        #c8c0b6 50%, #ffffff 56%,
+        #C8792A 62%, #fad060 64%, #C8792A 66%,
+        #e4dfd6 73%, #ffffff 86%, #f0ece4 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-headline span {
+      background: linear-gradient(
+        118deg,
+        #C8792A 0%, #e8922a 12%, #fad060 22%,
+        #C8792A 30%, #e0863a 48%,
+        #f5c050 58%, #C8792A 66%,
+        #d4782a 82%, #f0a030 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: clamp(15px, 2vw, 18px);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 52px;
+      background: linear-gradient(
+        118deg,
+        rgba(255,255,255,0.80) 0%,
+        rgba(255,248,235,0.72) 30%,
+        rgba(200,121,42,0.55) 45%,
+        rgba(255,248,235,0.72) 60%,
+        rgba(255,255,255,0.80) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Free-floating hero logo — no card, no box */
+    .hero-logo-img {
+      height: 100px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 16px rgba(200,121,42,0.35));
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .hero-scroll {
+      margin-top: 44px;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      animation: fadeUpDown 2s ease-in-out infinite;
+    }
+    @keyframes fadeUpDown {
+      0%, 100% { transform: translateY(0); opacity: 0.3; }
+      50% { transform: translateY(5px); opacity: 0.6; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 5%; background: var(--white); position: relative; z-index: 1; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* ── SERVICES ── */
+    #services {
+      background-image:
+        linear-gradient(rgba(247,248,250,0.75), rgba(247,248,250,0.75)),
+        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      display: block;
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .service-card:hover {
+      box-shadow: 0 16px 48px rgba(45,59,78,0.16);
+      transform: translateY(-5px);
+    }
+
+    .service-img {
+      position: relative;
+      height: 230px;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+    .service-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.18) 40%,
+        rgba(20,32,48,0.82) 100%
+      );
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.04);
+    }
+
+    .service-img-label {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 1;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    .service-img-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 18px 24px;
+      z-index: 1;
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+
+    .service-body {
+      padding: 24px 26px 28px;
+    }
+    .service-body p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .service-price {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      background: rgba(200,121,42,0.1);
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    #process {
+      background-color: #0a1018;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.42) 100%),
+        url('https://images.unsplash.com/photo-1693774557231-e2be6c3594e8?w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      position: relative;
+    }
+
+    .process-step { text-align: center; padding: 20px; }
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0 auto 20px;
+    }
+    .process-step h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .process-step p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── PRICING ── */
+    #pricing {
+      background-image:
+        linear-gradient(rgba(250,250,251,0.62), rgba(250,250,251,0.62)),
+        url('images/pricing-bg.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: var(--text);
+    }
+    /* Soft warm glow behind the heading so it pops off the busy photo underneath */
+    #pricing .section-label { text-shadow: 0 0 20px rgba(200,121,42,0.35); }
+    #pricing .section-title { text-shadow: 0 0 30px rgba(200,121,42,0.20); }
+    #pricing .px-title-accent { color: var(--orange); }
+    .px-tagline {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .px-hint {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: var(--orange);
+      margin-top: 14px;
+    }
+
+    /* ── INITIAL CARD GRID ── */
+    /* Wrapper is locked to the taller (detail-panel) height via JS on load,
+       so opening a package never resizes the section; content is centered
+       within that reserved space so the shorter grid state doesn't look stranded. */
+    .px-interactive {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .px-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .px-card-grid.hidden {
+      opacity: 0;
+      transform: translateY(-48px) scale(0.94);
+      pointer-events: none;
+    }
+
+    /* ── "DUG UP FROM GRAVEL" REVEAL ── */
+    /* Each card starts covered by a gravel-textured overlay and sunk
+       slightly below its resting position, not yet clickable. When the
+       pricing section scrolls into view, the gravel rolls off to the side
+       and the card rises into place, staggered gold → platinum → diamond.
+       All three cards are structurally identical (equal width/height/radius/
+       shadow) — grid's default row-stretch keeps their heights in sync. */
+    .px-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      cursor: pointer;
+      box-shadow: 0 26px 60px -18px rgba(20,20,24,0.45);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(40px);
+      opacity: 0;
+      pointer-events: none;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.7s cubic-bezier(.22,.61,.36,1), opacity 0.6s ease;
+    }
+    .px-card.revealed {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .px-card:hover {
+      box-shadow: 0 30px 70px -14px rgba(200,121,42,0.40);
+      border-color: rgba(200,121,42,0.55);
+    }
+    .px-card.revealed:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Top zone: full-bleed themed photo with the tier title carved over it,
+       fading into the solid charcoal body panel below. */
+    .px-card-image {
+      position: relative;
+      height: 220px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+    }
+    .px-card[data-tier="gold"] .px-card-image {
+      background-image:
+        linear-gradient(180deg, rgba(10,8,6,0.25) 0%, rgba(12,10,7,0.72) 78%, #14100c 100%),
+        url('https://images.unsplash.com/photo-1737815914093-becb6c9ac064?w=900&q=80');
+    }
+    .px-card[data-tier="platinum"] .px-card-image {
+      background-image:
+        linear-gradient(180deg, rgba(10,10,12,0.30) 0%, rgba(12,12,14,0.75) 78%, #131519 100%),
+        url('https://images.unsplash.com/photo-1517089472343-85fc51aeb327?w=900&q=80');
+    }
+    .px-card[data-tier="diamond"] .px-card-image {
+      background-image:
+        linear-gradient(180deg, rgba(5,5,8,0.25) 0%, rgba(6,7,10,0.72) 78%, #0c0e13 100%),
+        url('https://images.unsplash.com/photo-1549461520-fb80f766c147?w=900&q=80');
+    }
+
+    /* Bottom zone: solid charcoal panel — divider, price, description, features */
+    .px-card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 34px 40px;
+    }
+    .px-card[data-tier="gold"]     .px-card-body { background: #14100c; }
+    .px-card[data-tier="platinum"] .px-card-body { background: #131519; }
+    .px-card[data-tier="diamond"]  .px-card-body { background: #0c0e13; }
+
+    .px-card-cover {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.16) 1.5px, transparent 1.6px),
+        radial-gradient(circle, rgba(0,0,0,0.14) 1px, transparent 1.2px),
+        linear-gradient(135deg, #a8967a, #7d6c54 55%, #5f5140);
+      background-size: 14px 14px, 9px 9px, cover;
+      background-position: 0 0, 5px 6px, center;
+      transition: transform 0.75s cubic-bezier(.22,.61,.36,1), opacity 0.6s ease;
+    }
+    .px-card.revealed .px-card-cover {
+      transform: translateX(-130%) rotate(-6deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Tier titles: same textured-ore gradient treatment used site-wide,
+       enlarged since they now sit as the card's hero element. */
+    .px-name-gold {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(118deg,
+        #e0873a 0%, #f5b84a 18%, #C8792A 28%,
+        #fad060 38%, #d4782a 50%,
+        #f0a835 62%, #C8792A 72%, #f5c050 88%, #d97c28 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 14px rgba(200,121,42,0.6));
+      display: inline-block;
+    }
+    .px-name-platinum {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(118deg,
+        #b8bfc8 0%, #e8ecf0 14%, #c0c8d4 26%,
+        #ffffff 36%, #a8b0bc 48%,
+        #e0e6ee 60%, #d0d8e4 74%, #f0f4f8 88%, #b0bac8 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 14px rgba(140,152,168,0.65));
+      display: inline-block;
+    }
+    .px-name-diamond {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(118deg,
+        #9ec8f5 0%, #c8e6ff 14%, #7ab4ee 26%,
+        #eaf6ff 36%, #5598e0 48%,
+        #b8dcf8 60%, #e0f2ff 74%, #ffffff 88%, #80bcf0 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 16px rgba(85,152,224,0.6));
+      display: inline-block;
+    }
+
+    /* Small orange line + diamond mark between the tier name and its price */
+    .px-mini-divider {
+      width: 56px;
+      height: 1px;
+      background: var(--orange);
+      margin: 22px auto 22px;
+      position: relative;
+    }
+    .px-mini-divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .px-price {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 28px rgba(200,121,42,0.45);
+    }
+    .px-price-symbol {
+      font-size: 30px;
+      font-weight: 700;
+      vertical-align: 12px;
+      margin-right: 1px;
+    }
+    .px-summary {
+      font-size: 15px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      max-width: 260px;
+    }
+
+    /* Full-width rule separating the description from the feature checklist */
+    .px-card-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin: 26px 0 28px;
+    }
+
+    .px-card-features {
+      list-style: none;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .px-card-features .px-feature-item {
+      border-bottom: none;
+      padding: 0;
+    }
+
+    /* ── DETAIL PANEL ── */
+    /* Same dark-charcoal treatment as the cards, so hovering/clicking into
+       a package feels like a continuation of the card design, not a jump
+       to a different theme. */
+    .px-detail {
+      display: none;
+      opacity: 0;
+      transform: translateX(18px);
+      background: #14161b;
+      border-radius: 22px;
+      padding: 46px 46px 42px;
+      box-shadow: 0 26px 60px -18px rgba(20,20,24,0.45);
+      transition: opacity 0.38s ease, transform 0.38s ease;
+    }
+    .px-detail.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .px-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .px-tab-btn {
+      padding: 12px 28px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      cursor: pointer;
+      color: rgba(255,255,255,0.42);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .px-tab-btn.active-gold   { color: #f5b84a;  border-bottom-color: #C8792A; }
+    .px-tab-btn.active-platinum { color: #d0dcea; border-bottom-color: #b0bac8; }
+    .px-tab-btn.active-diamond  { color: #9ec8f5; border-bottom-color: #5598e0; }
+
+    .px-detail-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .px-detail-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .px-detail-price {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      text-shadow: 0 4px 28px rgba(200,121,42,0.45);
+    }
+    .px-detail-period {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      margin-left: 2px;
+    }
+
+    .px-features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+    }
+    .px-feature-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      opacity: 0;
+      transform: translateX(18px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .px-feature-item.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .px-feature-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(200,121,42,0.16);
+      border: 1px solid rgba(200,121,42,0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+    .px-feature-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .px-feature-text span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    .px-cta-row {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .px-back-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.42);
+      font-size: 13px;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .px-back-btn:hover { color: rgba(255,255,255,0.85); }
+
+    .px-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 48px;
+      text-align: center;
+    }
+    .px-trust-icon {
+      width: 22px;
+      height: 22px;
+      fill: var(--orange);
+      flex-shrink: 0;
+    }
+    .px-trust p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 820px) {
+      .px-card-grid { grid-template-columns: 1fr; gap: 28px; }
+      .px-card-image { height: 180px; }
+      .px-card-body { padding: 0 26px 34px; }
+      .px-name-gold, .px-name-platinum, .px-name-diamond { font-size: 28px; }
+      .px-price { font-size: 44px; }
+      .px-detail { padding: 34px 26px 30px; }
+      .px-features   { grid-template-columns: 1fr; }
+      .px-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .px-tab-btn { padding: 12px 16px; font-size: 11px; white-space: nowrap; }
+      .px-detail-price { font-size: 32px; }
+      .px-trust { flex-direction: column; gap: 8px; }
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background-color: #0a1018;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.42) 100%),
+        url('https://images.unsplash.com/photo-1693774557231-e2be6c3594e8?w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: var(--white);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    #about .section-label { color: var(--orange-light); }
+    #about .section-title { color: var(--white); }
+    #about .section-sub { color: rgba(255,255,255,0.7); max-width: 100%; }
+
+    /* ── DARK HERO–STYLE TEXT (Process + About) ── */
+    #process .section-label,
+    #about .section-label {
+      background: linear-gradient(
+        118deg,
+        #e0873a 0%, #f5b84a 18%, #C8792A 28%,
+        #fad060 38%, #d4782a 50%,
+        #f0a835 62%, #C8792A 72%, #f5c050 88%, #d97c28 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      filter: drop-shadow(0 0 10px rgba(200,121,42,0.45));
+    }
+
+    #process .section-title,
+    #about .section-title {
+      background: linear-gradient(
+        118deg,
+        #f8f4ee 0%, #ffffff 8%,
+        #e0d8ce 16%, #C8792A 21%, #f5c060 23%, #C8792A 25%,
+        #dedad2 31%, #ffffff 42%,
+        #c8c0b6 50%, #ffffff 56%,
+        #C8792A 62%, #fad060 64%, #C8792A 66%,
+        #e4dfd6 73%, #ffffff 86%, #f0ece4 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #process .section-sub,
+    #about .section-sub {
+      background: linear-gradient(
+        118deg,
+        rgba(255,255,255,0.85) 0%,
+        rgba(255,248,235,0.75) 30%,
+        rgba(200,121,42,0.55) 45%,
+        rgba(255,248,235,0.75) 60%,
+        rgba(255,255,255,0.85) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #process .process-step h3 { color: var(--white); }
+    #process .process-step p  { color: rgba(255,255,255,0.70); }
+
+    #process .step-number {
+      background: var(--orange);
+      box-shadow: 0 0 20px rgba(200,121,42,0.45);
+    }
+
+    #about .about-quote {
+      color: rgba(255,255,255,0.88);
+      border-left-color: var(--orange);
+    }
+
+    .about-quote {
+      font-size: 20px;
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      border-left: 3px solid var(--orange);
+      padding-left: 24px;
+      margin: 32px 0;
+      line-height: 1.7;
+    }
+
+    .about-visual {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .about-stat {
+      margin-bottom: 32px;
+    }
+    .about-stat:last-child { margin-bottom: 0; }
+    .about-stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .about-stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+    .about-stat-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background-color: #0d1821;
+      background-image:
+        linear-gradient(rgba(13,24,33,0.62), rgba(13,24,33,0.62)),
+        url('images/lode-logo-transparent.png');
+      background-size: 48%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    #contact .section-label  { color: var(--orange-light); }
+    #contact .section-title  { color: var(--white); }
+    #contact .contact-info h3 { color: var(--white); }
+    #contact .contact-info p  { color: rgba(255,255,255,0.70); }
+    #contact .contact-detail  { color: rgba(255,255,255,0.75); }
+    #contact .contact-detail-icon { background: rgba(255,255,255,0.08); }
+    #contact .form-group label { color: rgba(255,255,255,0.90); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.3px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 13px 16px;
+      border: 2px solid var(--gray-light);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      font-family: inherit;
+    }
+    .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+    .contact-info { padding-top: 8px; }
+    .contact-info h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .contact-info p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .book-call-block {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .book-call-block h4 {
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .book-call-block p {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .book-call-block .btn {
+      background: var(--orange);
+      color: var(--white);
+      font-size: 15px;
+    }
+    .book-call-block .btn:hover { background: var(--orange-light); }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .contact-detail-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--off-white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail-icon svg { width: 18px; height: 18px; fill: var(--orange); }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: #0d1821;
+      background-image:
+        linear-gradient(rgba(13,24,33,0.62), rgba(13,24,33,0.62)),
+        url('images/lode-logo-transparent.png');
+      background-size: 48%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: rgba(255,255,255,0.6);
+      padding: 48px 5% 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .nav-logo-main { font-size: 20px; }
+    .footer-brand .nav-logo-sub { color: rgba(255,255,255,0.3); }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links h5 {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-links ul { list-style: none; }
+    .footer-links ul li { margin-bottom: 10px; }
+    .footer-links ul a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-links ul a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .footer-bottom a { color: var(--orange); text-decoration: none; }
+
+    /* ── PORTFOLIO ── */
+    #portfolio {
+      background-image:
+        linear-gradient(rgba(247,248,250,0.75), rgba(247,248,250,0.75)),
+        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .portfolio-card:hover {
+      box-shadow: 0 8px 32px rgba(45,59,78,0.12);
+      transform: translateY(-3px);
+    }
+
+    .portfolio-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--navy-light);
+    }
+
+    .portfolio-info { padding: 28px; }
+
+    .portfolio-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .portfolio-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .portfolio-info p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-link {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .portfolio-link:hover { color: var(--orange); }
+
+    .portfolio-cta {
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--navy-dark); padding: 20px 5%; gap: 16px; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 32px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="images/lode-logo-transparent.png" alt="LODE Marketing">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <!-- ============================================================
+           BOOK A CALL — replace href with your real Calendly link
+           e.g. https://calendly.com/lodemarketing/discovery
+      =============================================================== -->
+      <li><a href="https://calendly.com/csmith-lodemarketing/30min" target="_blank" class="nav-cta">Book a Call</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO SLIDESHOW ── -->
+  <section class="hero">
+    <div class="hero-slider-track" id="heroTrack">
+
+      <!-- Slide 1 — Brand intro -->
+      <div class="hero-slide">
+        <div class="hero-eyebrow">LODE Marketing &nbsp;|&nbsp; Uncovering the Local Chattanooga Area</div>
+        <h1 class="hero-headline">Built to be <span>found.</span></h1>
+        <p class="hero-tagline"><em>lode</em> /lōd/ <em>noun</em> — a vein of metal or mineral ore embedded in surrounding rock, waiting to be brought to the surface. Your business has that same potential.</p>
+      </div>
+
+      <!-- Slide 2 — Website Design & Maintenance -->
+      <div class="hero-slide">
+        <div class="hero-eyebrow">LODE Marketing &nbsp;|&nbsp; Website Design & Maintenance</div>
+        <h1 class="hero-headline">Your site, <span>built right.</span></h1>
+        <p class="hero-tagline">Professional websites that look sharp, load fast, and keep working — so you can focus on the work you're good at.</p>
+      </div>
+
+      <!-- Slide 3 — Real Estate Media -->
+      <div class="hero-slide">
+        <div class="hero-eyebrow">LODE Marketing &nbsp;|&nbsp; Real Estate Walkthrough Videos & Pictures</div>
+        <h1 class="hero-headline">Show it. <span>Sell it.</span></h1>
+        <p class="hero-tagline">High-quality walkthrough videos and photos that put buyers in the room before they ever walk through the door.</p>
+      </div>
+
+      <!-- Slide 4 — Facebook & Instagram Ads -->
+      <div class="hero-slide">
+        <div class="hero-eyebrow">LODE Marketing &nbsp;|&nbsp; Facebook & Instagram Ads</div>
+        <h1 class="hero-headline">Found by the <span>right people.</span></h1>
+        <p class="hero-tagline">Targeted ad campaigns that put your business in front of local customers who are ready to buy.</p>
+      </div>
+
+    </div>
+
+    <!-- Left / Right arrows -->
+    <div class="hero-nav">
+      <button class="hero-arrow" id="heroPrev" aria-label="Previous slide">&#8592;</button>
+      <button class="hero-arrow" id="heroNext" aria-label="Next slide">&#8594;</button>
+    </div>
+
+    <!-- Slide indicators -->
+    <div class="hero-dots">
+      <button class="hero-dot active" aria-label="Slide 1"></button>
+      <button class="hero-dot" aria-label="Slide 2"></button>
+      <button class="hero-dot" aria-label="Slide 3"></button>
+      <button class="hero-dot" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="hero-scroll">scroll ↓</div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="section-header">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Everything your business needs<br>to win online</h2>
+      <p class="section-sub">From your first website to a full-scale ad campaign — we handle the digital side so you can focus on the work you're good at.</p>
+    </div>
+    <div class="services-grid">
+
+      <a href="#contact" class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80')">
+          <div class="service-img-label">Web Design</div>
+          <div class="service-img-title">Website Design</div>
+        </div>
+        <div class="service-body">
+          <p>Professional, mobile-ready websites built fast. We write the copy, design the layout, and get you live — in days, not months.</p>
+          <div class="service-price">Starting at $150 · Live in 1–3 days</div>
+        </div>
+      </a>
+
+      <a href="#contact" class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&q=80')">
+          <div class="service-img-label">Paid Social</div>
+          <div class="service-img-title">Meta Ads Management</div>
+        </div>
+        <div class="service-body">
+          <p>Facebook and Instagram ads that put your business in front of the right people. We handle creatives, targeting, and monthly reporting.</p>
+          <div class="service-price">From $250/mo · You pay ad spend directly</div>
+        </div>
+      </a>
+
+      <a href="#contact" class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80')">
+          <div class="service-img-label">Short-Term Rentals</div>
+          <div class="service-img-title">Airbnb Ad Management</div>
+        </div>
+        <div class="service-body">
+          <p>Specialized ad campaigns for Airbnb property owners. More bookings, better occupancy, targeted to travelers ready to book.</p>
+          <div class="service-price">Custom pricing · Book a call to discuss</div>
+        </div>
+      </a>
+
+      <a href="#contact" class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80')">
+          <div class="service-img-label">Ongoing Support</div>
+          <div class="service-img-title">Hosting & Maintenance</div>
+        </div>
+        <div class="service-body">
+          <p>Keep your site running fast and up to date. We handle hosting, updates, and minor edits so you never have to think about it.</p>
+          <div class="service-price">$50–$100/mo · Peace of mind included</div>
+        </div>
+      </a>
+
+      <a href="#contact" class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=800&q=80')">
+          <div class="service-img-label">Local Search</div>
+          <div class="service-img-title">Google Business Profile</div>
+        </div>
+        <div class="service-body">
+          <p>Set up and optimize your Google listing so customers find you first when they're searching locally. First impressions start here.</p>
+          <div class="service-price">$75–$150 one-time setup</div>
+        </div>
+      </a>
+
+      <a href="#contact" class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80')">
+          <div class="service-img-label">Creative</div>
+          <div class="service-img-title">Ad Creative Design</div>
+        </div>
+        <div class="service-body">
+          <p>Eye-catching Facebook, Instagram, and Story ads designed to stop the scroll. Feed, story, square, and retargeting — all four formats.</p>
+          <div class="service-price">$150–$250 per set of 4 ads</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section id="process">
+    <div class="section-header" style="text-align:center; max-width:600px; margin:0 auto 56px;">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">Simple. Fast. Done right.</h2>
+      <p class="section-sub" style="margin:0 auto;">No long contracts, no confusing agency speak. Here's exactly how we work together.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h3>You reach out</h3>
+        <p>Book a free 15-minute call or fill out the contact form. No obligation — we'll listen to what you need and tell you exactly what we'd build.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h3>We build your mockup</h3>
+        <p>Within 24–48 hours, we put together a real preview of your website or ad creative. You see it before paying a single dollar.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h3>You approve & we launch</h3>
+        <p>Once you love it, we go live. Your site goes up on a real domain, your ads go into the system, and customers start finding you.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h3>We keep it running</h3>
+        <p>Optional monthly packages for hosting, maintenance, and ongoing ad management. We stick around to make sure it keeps working.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section id="pricing">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 56px;">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple, Transparent Pricing.<br>Serious <span class="px-title-accent">Results.</span></h2>
+      <p class="px-tagline">One-time investment. Built for long-term growth.</p>
+      <p class="px-hint">Click a package to see the full list of services.</p>
+    </div>
+
+    <!-- Wrapper holds both the card grid and the detail panel it swaps to on click -->
+    <div class="px-interactive" id="pxInteractive">
+
+      <!-- Initial card grid -->
+      <div class="px-card-grid" id="pxCardGrid">
+
+        <div class="px-card" data-tier="gold">
+          <div class="px-card-cover" aria-hidden="true"></div>
+          <div class="px-card-image">
+            <div class="px-name-gold">Gold</div>
+          </div>
+          <div class="px-card-body">
+            <div class="px-mini-divider" aria-hidden="true"></div>
+            <div class="px-price"><span class="px-price-symbol">$</span>500</div>
+            <p class="px-summary">A strong foundation to establish your online presence.</p>
+            <div class="px-card-divider" aria-hidden="true"></div>
+            <ul class="px-card-features">
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Custom Website Design</strong><span>Professionally designed to reflect your brand and convert visitors.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Mobile Responsive</strong><span>Looks great on all devices, from desktops to smartphones.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Basic SEO Setup</strong><span>Optimized page titles, meta descriptions, and local search structure.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Contact Form</strong><span>Easy-to-use contact form to capture leads and inquiries.</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="px-card" data-tier="platinum">
+          <div class="px-card-cover" aria-hidden="true"></div>
+          <div class="px-card-image">
+            <div class="px-name-platinum">Platinum</div>
+          </div>
+          <div class="px-card-body">
+            <div class="px-mini-divider" aria-hidden="true"></div>
+            <div class="px-price"><span class="px-price-symbol">$</span>980</div>
+            <p class="px-summary">Everything you need to stand out and grow your business.</p>
+            <div class="px-card-divider" aria-hidden="true"></div>
+            <ul class="px-card-features">
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Everything in Gold</strong><span>All the essentials to build a solid online foundation.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Advanced SEO</strong><span>On-page optimization, keyword targeting, and Google Business Profile setup.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Speed Optimization</strong><span>Faster loading times for better user experience and rankings.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Additional Pages</strong><span>Up to 3 additional pages to showcase your business and services.</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="px-card" data-tier="diamond">
+          <div class="px-card-cover" aria-hidden="true"></div>
+          <div class="px-card-image">
+            <div class="px-name-diamond">Diamond</div>
+          </div>
+          <div class="px-card-body">
+            <div class="px-mini-divider" aria-hidden="true"></div>
+            <div class="px-price"><span class="px-price-symbol">$</span>2,500</div>
+            <p class="px-summary">The complete solution for businesses ready to dominate.</p>
+            <div class="px-card-divider" aria-hidden="true"></div>
+            <ul class="px-card-features">
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Everything in Platinum</strong><span>All the tools and features to take your online presence to the next level.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Premium SEO & Content</strong><span>Advanced SEO strategy, content creation, and competitive analysis.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Conversion Optimization</strong><span>Built to turn visitors into customers with strategic design and copy.</span></div>
+              </li>
+              <li class="px-feature-item in">
+                <div class="px-feature-check">✓</div>
+                <div class="px-feature-text"><strong>Priority Support</strong><span>Fast turnaround times and ongoing priority assistance.</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Detail panel (revealed on hover preview or click lock) -->
+      <div class="px-detail" id="pxDetail">
+
+        <div class="px-tabs">
+          <button class="px-tab-btn" id="pxTabGold"     data-tier="gold">Gold</button>
+          <button class="px-tab-btn" id="pxTabPlatinum" data-tier="platinum">Platinum</button>
+          <button class="px-tab-btn" id="pxTabDiamond"  data-tier="diamond">Diamond</button>
+        </div>
+
+        <div class="px-detail-header">
+          <div class="px-detail-name" id="pxDetailName"></div>
+          <div>
+            <span class="px-detail-price" id="pxDetailPrice"></span>
+            <span class="px-detail-period" id="pxDetailPeriod"></span>
+          </div>
+        </div>
+
+        <ul class="px-features" id="pxFeatureList"></ul>
+
+        <div class="px-cta-row">
+          <a href="https://calendly.com/csmith-lodemarketing/30min" target="_blank" class="btn btn-primary">Book a Free Call</a>
+          <button class="px-back-btn" id="pxBackBtn">← View all packages</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="px-trust">
+      <svg viewBox="0 0 24 24" class="px-trust-icon"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zm-1.2 13.4L15.6 10l-1.4-1.4-4 4-2-2L6.8 12l3.2 3.4z"/></svg>
+      <p>One-time payment. No hidden fees. No long-term contracts.<br>Just high-quality work that delivers results.</p>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-inner">
+      <div>
+        <div class="section-label">About LODE Marketing</div>
+        <h2 class="section-title">We believe every business<br>has hidden potential.</h2>
+        <p class="section-sub">LODE Marketing was built on a simple idea: local businesses deserve the same quality digital presence as the big companies — without the big agency price tag.</p>
+        <blockquote class="about-quote">"We help bring it to the surface."</blockquote>
+        <p class="section-sub">Based in the Chattanooga area, we specialize in websites, social media ads, and Airbnb marketing for the businesses that keep our communities running.</p>
+      </div>
+      <div class="about-visual">
+        <div class="about-stat">
+          <div class="about-stat-label">Turnaround time</div>
+          <div class="about-stat-value">1–3 days</div>
+          <div class="about-stat-desc">From brief to live website</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-label">What we build for</div>
+          <div class="about-stat-value">Local businesses</div>
+          <div class="about-stat-desc">Trades, service companies, Airbnb hosts</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-label">Free offer</div>
+          <div class="about-stat-value">Website mockup</div>
+          <div class="about-stat-desc">See it before you pay a cent</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO ── -->
+  <section id="portfolio">
+    <div class="section-header">
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Businesses we've helped<br>get found online</h2>
+      <p class="section-sub">Real local businesses, real results. See what your website could look like within one week.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <div class="portfolio-img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80')"></div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">Website Design</div>
+          <h3>Local Restaurant</h3>
+          <p>Professional website built in 2 days — menu, hours, online booking, and Google-optimized from day one.</p>
+          <a href="#" class="portfolio-link">View Site →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img" style="background-image:url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80')"></div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">Airbnb Ad Management</div>
+          <h3>Chattanooga Area Host</h3>
+          <p>Airbnb listing ads optimized for visibility and conversions — calendar fully booked within 30 days.</p>
+          <a href="#" class="portfolio-link">View Results →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img" style="background-image:url('https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&q=80')"></div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">Meta Ads</div>
+          <h3>Local Service Company</h3>
+          <p>Facebook & Instagram ad campaign that booked a service company solid for 3 weeks in the first month.</p>
+          <a href="#" class="portfolio-link">View Campaign →</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="portfolio-cta">Want to be featured here? <a href="#contact" style="color:var(--orange); font-weight:600;">Let's talk →</a></p>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div>
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Let's talk.</h2>
+        <!-- ============================================================
+             FORM — sign up free at formspree.io, get your form ID,
+             and replace YOUR_FORM_ID in the action below
+        =============================================================== -->
+        <form class="contact-form" action="https://formspree.io/f/mnjkenlr" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="business">Business name</label>
+              <input type="text" id="business" name="business" placeholder="Smith's Landscaping">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(423) 555-0100">
+          </div>
+          <div class="form-group">
+            <label for="service">What are you interested in?</label>
+            <select id="service" name="service">
+              <option value="">Select a service...</option>
+              <option>Website design</option>
+              <option>Meta / Facebook ads</option>
+              <option>Airbnb ad management</option>
+              <option>Hosting & maintenance</option>
+              <option>Everything — let's talk</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about your business</label>
+            <textarea id="message" name="message" placeholder="What do you do, who are your customers, and what's not working right now?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3>Prefer to jump on a call?</h3>
+        <p>Book a free 15-minute discovery call and we'll put together a mockup of your website — no strings attached. Seeing the real thing is worth more than any sales pitch.</p>
+
+        <div class="book-call-block">
+          <h4>Free 15-min discovery call</h4>
+          <p>Pick a time that works for you — we'll handle the rest.</p>
+          <!-- Replace href with your real Calendly link -->
+          <a href="https://calendly.com/csmith-lodemarketing/30min" target="_blank" class="btn">Book on Calendly →</a>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
+          (423) 710-5901
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          csmith@lodemarketingllc.com
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          Chattanooga Area, TN
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="images/lode-logo-transparent.png" alt="LODE Marketing" style="height:52px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:12px;">
+        <div class="footer-tagline">— BUILT TO BE FOUND. —</div>
+      </div>
+      <div class="footer-links">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Website Design</a></li>
+          <li><a href="#services">Meta Ads</a></li>
+          <li><a href="#services">Airbnb Ads</a></li>
+          <li><a href="#services">Hosting & Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Get Started</h5>
+        <ul>
+          <!-- Replace with real Calendly link -->
+          <li><a href="https://calendly.com/csmith-lodemarketing/30min" target="_blank">Book a Free Call</a></li>
+          <li><a href="#contact">Send a Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LODE Marketing. All rights reserved. · Chattanooga, TN</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── HERO SLIDESHOW ──
+    (function() {
+      const track = document.getElementById('heroTrack');
+      const dots  = document.querySelectorAll('.hero-dot');
+      const total = 4;
+      let current = 0;
+
+      function goTo(n) {
+        current = (n + total) % total;
+        track.style.transform = 'translateX(-' + (current * 25) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      // Start on last slide instantly (no transition), then sweep back to slide 1
+      track.style.transition = 'none';
+      track.style.transform  = 'translateX(-75%)';
+      dots.forEach((d, i)    => d.classList.toggle('active', i === 3));
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          track.style.transition = 'transform 0.9s cubic-bezier(0.77, 0, 0.175, 1)';
+          goTo(0);
+        });
+      });
+
+      // Dots
+      dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+      // Arrows
+      document.getElementById('heroPrev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('heroNext').addEventListener('click', () => goTo(current + 1));
+    })();
+
+    // Transparent nav → dark on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // ── PRICING INTERACTION ──
+    const pxData = {
+      gold: {
+        name: 'Gold', nameClass: 'px-name-gold', tabClass: 'active-gold',
+        price: '$500', period: '',
+        features: [
+          { title: 'Custom Website Design', sub: 'Professionally designed to reflect your brand and convert visitors.' },
+          { title: 'Mobile Responsive',      sub: 'Looks great on all devices, from desktops to smartphones.' },
+          { title: 'Basic SEO Setup',        sub: 'Optimized page titles, meta descriptions, and local search structure.' },
+          { title: 'Contact Form',           sub: 'Easy-to-use contact form to capture leads and inquiries.' },
+        ]
+      },
+      platinum: {
+        name: 'Platinum', nameClass: 'px-name-platinum', tabClass: 'active-platinum',
+        price: '$980', period: '',
+        features: [
+          { title: 'Everything in Gold',   sub: 'All the essentials to build a solid online foundation.' },
+          { title: 'Advanced SEO',         sub: 'On-page optimization, keyword targeting, and Google Business Profile setup.' },
+          { title: 'Speed Optimization',   sub: 'Faster loading times for better user experience and rankings.' },
+          { title: 'Additional Pages',     sub: 'Up to 3 additional pages to showcase your business and services.' },
+        ]
+      },
+      diamond: {
+        name: 'Diamond', nameClass: 'px-name-diamond', tabClass: 'active-diamond',
+        price: '$2,500', period: '',
+        features: [
+          { title: 'Everything in Platinum',    sub: 'All the tools and features to take your online presence to the next level.' },
+          { title: 'Premium SEO & Content',     sub: 'Advanced SEO strategy, content creation, and competitive analysis.' },
+          { title: 'Conversion Optimization',   sub: 'Built to turn visitors into customers with strategic design and copy.' },
+          { title: 'Priority Support',          sub: 'Fast turnaround times and ongoing priority assistance.' },
+        ]
+      }
+    };
+
+    // ── CLICK-TO-OPEN STATE MACHINE ──
+    // Clicking a card or tab opens (or switches to) that tier's detail panel.
+    // It stays open — no hover, no auto-revert — until the visitor clicks
+    // "View all packages" or picks a different tier.
+    let pxIsOpen = false; // whether the detail panel is showing (vs. the 3-card grid)
+
+    function pxOpen(tier) {
+      if (!pxIsOpen) {
+        pxOpenDetail(tier);
+      } else {
+        pxRenderPanel(tier);
+      }
+    }
+
+    function pxOpenDetail(tier) {
+      const grid   = document.getElementById('pxCardGrid');
+      const detail = document.getElementById('pxDetail');
+      pxIsOpen = true;
+      grid.classList.add('hidden');
+      setTimeout(function() {
+        grid.style.display = 'none';
+        detail.style.display = 'block';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            detail.classList.add('visible');
+            pxRenderPanel(tier);
+          });
+        });
+      }, 360);
+    }
+
+    function pxRenderPanel(tier) {
+      var data = pxData[tier];
+
+      // Tab active states
+      ['gold','platinum','diamond'].forEach(function(t) {
+        var id  = 'pxTab' + t.charAt(0).toUpperCase() + t.slice(1);
+        var btn = document.getElementById(id);
+        btn.className = 'px-tab-btn' + (t === tier ? ' ' + pxData[t].tabClass : '');
+      });
+
+      // Header
+      var nameEl = document.getElementById('pxDetailName');
+      nameEl.className = 'px-detail-name ' + data.nameClass;
+      nameEl.textContent = data.name;
+      document.getElementById('pxDetailPrice').textContent  = data.price;
+      document.getElementById('pxDetailPeriod').textContent = data.period;
+
+      // Features — build with stagger
+      var list = document.getElementById('pxFeatureList');
+      list.innerHTML = '';
+      data.features.forEach(function(f, i) {
+        var li = document.createElement('li');
+        li.className = 'px-feature-item';
+        li.innerHTML =
+          '<div class="px-feature-check">✓</div>' +
+          '<div class="px-feature-text"><strong>' + f.title + '</strong><span>' + f.sub + '</span></div>';
+        list.appendChild(li);
+        setTimeout(function() { li.classList.add('in'); }, 55 + i * 48);
+      });
+    }
+
+    function pxCollapseToGrid() {
+      if (!pxIsOpen) return;
+      var grid   = document.getElementById('pxCardGrid');
+      var detail = document.getElementById('pxDetail');
+      detail.classList.remove('visible');
+      setTimeout(function() {
+        detail.style.display = 'none';
+        grid.style.display   = '';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            grid.classList.remove('hidden');
+          });
+        });
+        pxIsOpen = false;
+      }, 360);
+    }
+
+    // ── EVENT WIRING ── (click only — no hover triggers)
+    document.querySelectorAll('.px-card').forEach(function(card) {
+      var tier = card.getAttribute('data-tier');
+      card.addEventListener('click', function() { pxOpen(tier); });
+    });
+
+    document.querySelectorAll('.px-tab-btn').forEach(function(tab) {
+      var tier = tab.getAttribute('data-tier');
+      tab.addEventListener('click', function() { pxOpen(tier); });
+    });
+
+    document.getElementById('pxBackBtn').addEventListener('click', pxCollapseToGrid);
+
+    // ── LOCK PRICING SECTION HEIGHT ──
+    // Render the detail panel once (invisibly) to measure its full expanded
+    // height, then reserve that as the wrapper's min-height. This keeps the
+    // pricing section's on-screen size identical whether the 3-card grid or
+    // a package's detail view is showing, so opening/closing never causes
+    // the page to jump.
+    function pxLockInteractiveHeight() {
+      var interactive = document.getElementById('pxInteractive');
+      var grid = document.getElementById('pxCardGrid');
+      var detail = document.getElementById('pxDetail');
+
+      interactive.style.minHeight = '';
+      detail.style.visibility = 'hidden';
+      detail.style.display = 'block';
+      pxRenderPanel('platinum');
+      var detailHeight = detail.offsetHeight;
+      detail.style.display = 'none';
+      detail.style.visibility = '';
+
+      var gridHeight = grid.offsetHeight;
+      interactive.style.minHeight = Math.max(detailHeight, gridHeight) + 'px';
+    }
+
+    pxLockInteractiveHeight();
+
+    var pxResizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(pxResizeTimer);
+      pxResizeTimer = setTimeout(pxLockInteractiveHeight, 150);
+    });
+
+    // ── "DUG UP FROM GRAVEL" REVEAL ON SCROLL ──
+    // Watches the card grid; once it scrolls into view, each card's gravel
+    // cover rolls away and the card rises into place, staggered left to
+    // right (gold → platinum → diamond). Runs once, then disconnects.
+    (function() {
+      var cards = document.querySelectorAll('#pxCardGrid .px-card');
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach(function(card) { card.classList.add('revealed'); });
+        return;
+      }
+      var pxRevealObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          cards.forEach(function(card, i) {
+            setTimeout(function() { card.classList.add('revealed'); }, i * 220);
+          });
+          observer.disconnect();
+        });
+      }, { threshold: 0.35 });
+      pxRevealObserver.observe(document.getElementById('pxCardGrid'));
+    })();
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('navLinks').classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
